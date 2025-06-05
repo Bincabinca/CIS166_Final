@@ -123,6 +123,7 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Name = "UserLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.UserLogin_Load);
             this.ResumeLayout(false);

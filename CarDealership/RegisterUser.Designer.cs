@@ -112,6 +112,7 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Name = "RegisterUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register New User";
             this.ResumeLayout(false);
             this.PerformLayout();
