@@ -1,0 +1,41 @@
+Toyota
+Camry
+Blue
+13
+1345
+30 MPG|Honda
+Fit
+Silver
+13
+8000
+5/5|BMW
+X2
+Blue
+9
+20000.00
+M2|Toyota
+Sienna
+Grey
+17
+1670.99
+30 MPG|Mercedes
+Luxury Car
+Gold
+1
+200000
+500hp|Honda
+Civic
+Yellow
+10
+6000
+4|Honda
+Sport
+Red
+4
+9000
+2/5|Mercedes
+Benz
+Silver
+7
+25500
+700hp|
