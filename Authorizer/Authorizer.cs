@@ -4,12 +4,6 @@ using System;
 using System.Runtime.CompilerServices;
 
 
-
-
-
-
-
-
 namespace Authorizer {
     public class  Authorizer {
         
