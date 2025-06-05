@@ -28,12 +28,7 @@ Civic
 Yellow
 10
 6000
-4|Honda
-Sport
-Red
-4
-9000
-2/5|Mercedes
+4|Mercedes
 Benz
 Silver
 7
