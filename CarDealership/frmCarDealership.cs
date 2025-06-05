@@ -108,5 +108,12 @@ namespace CarDealership
             FillListings();
             cboFilterBy.SelectedIndex = 0;
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            //Open UserLogin form
+            UserLogin userLoginForm = new UserLogin();
+            userLoginForm.ShowDialog();
+        }
     }
 }
