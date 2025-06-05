@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Runtime.CompilerServices;
 
 
 
@@ -13,41 +14,55 @@ namespace Authorizer {
     public class  Authorizer {
         
         private const string UsersPath = @"..\..\DataFiles\UserDB.txt";
+        private static Random rand = new Random();
 
 
 
-        //private Dictionary<string, List<int>> users = new Dictionary<string, List<int>>();
-        //private Dictionary<char, int> passwordMappings = new Dictionary<char,int>();
-        Random rand = new Random();
-        
-     
+        // Checks if the user is authorized by checking the password against the user database
+        public static Dictionary<string,string> generateMap(string password) {
 
-        public static void saveUser(string username) { 
-        
-        
+            // Generates a mapping of characters in the password to random uppercase letters
+            Dictionary<string,string> output = new Dictionary<string,string>();
+
+            List<string> charlist = password.Split().ToList();
+
+            foreach (string s in charlist ) {
+                
+                output.Add(s, ((char)rand.Next(65,91)).ToString());
+
+
+            }
+            return output;
         }
       
-        //private List<int> encryptPassword(string password) {
-        //    // Encrypts the password using a simple mapping
-        //    List<int> encryptedPass = new List<int>();
-        //    foreach (char c in password) {
-
-        //        if (passwordMappings.ContainsKey(c)) {
-
-        //            encryptedPass.Add(passwordMappings[c]);
-        //        } else {
-        //            int newValue = rand.Next(1,25); // Random value for simplicity
-        //            passwordMappings[c] = newValue;
-        //            encryptedPass.Add(newValue);
-        //        }
-        //    }
-        //    return encryptedPass;
-        //}
-
+       
         public static string GetKey(string input) {
             // Creates a monosub key mapping for the given input
-            return "placeholder";
+            Dictionary<string, string> map = generateMap(input);
+            string output = "";
+            foreach (char c in input) {
+                output += map[c.ToString()];
+                
+            
+            }
+            return output;
         }
+
+        // Saves the key to a file, appending it if the file already exists
+        public static void saveKey(string filepath,string key) {
+
+            if (!File.Exists(filepath))
+            {
+                File.Create(filepath).Close();
+
+            }
+            else {
+            
+                System.IO.File.WriteAllText(filepath,key);
+            }
+        }
+
+
     }
         
     }
