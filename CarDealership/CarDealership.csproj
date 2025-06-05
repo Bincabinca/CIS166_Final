@@ -121,6 +121,7 @@
     <Content Include="DataFiles\InventoryItems.txt" />
     <Content Include="DataFiles\CarPriceRanges.txt" />
     <Content Include="DataFiles\ListingTimes.txt" />
+    <Content Include="DataFiles\UserDB.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ValidationLibrary\ValidationLibrary.csproj">

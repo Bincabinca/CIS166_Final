@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 namespace Authorizer {
     public class  Authorizer {
         
-        private const string UsersPath = @"..\..\DataFiles\UserDB.txt";
+        public const string UsersPath = @"..\..\DataFiles\UserDB.txt";
         private static Random rand = new Random();
 
 
