@@ -13,7 +13,7 @@ namespace CarDealership
 {
     public partial class frmCarDealership : Form
     {
-
+        // set page max and size for pagination
         private const int totalRecords = 20;
         private const int pageSize = 2;
 
@@ -28,7 +28,7 @@ namespace CarDealership
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
-            // The desired page has changed, so fetch the page of records using the "Current" offset 
+            // change page, fetch the page of records using the "Current" offset 
             int offset = (int)bsrListings.Current;
             var records = new List<Record>();
             for (int i = offset; i < offset + pageSize && i < totalRecords; i++)
@@ -54,7 +54,6 @@ namespace CarDealership
                 return pageOffsets;
             }
         }
-        ///
 
         //Populate cboTextBox filter menu and rich textbox upon loading form 
         private void frmCarDealership_Load(object sender, EventArgs e)
@@ -74,11 +73,19 @@ namespace CarDealership
         //Method to populate rich textbox with listings
         private void FillListings()
         {
-            rchListings.Clear();
+            //dgvListings.Columns.Clear();
+            rchListings.Clear();//REMOVE ONCE GRID VIEW GOOD
 
-            string[] listings = CarListingsDB.Get();
+            var listings = CarListingsDB.GetListings();
             foreach (var listing in listings)
-                rchListings.Text += listing.ToString();
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                
+                //add listing to the data grid view
+                dgvListings.Rows.Add(row);
+
+                rchListings.Text += listing.ToString();//REMOVE ONCE GRID VIEW GOOD
+            }
         }
 
         private void FillFilteredListings(string filter)
