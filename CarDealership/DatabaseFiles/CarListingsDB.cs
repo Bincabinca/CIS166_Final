@@ -32,16 +32,16 @@ namespace CarDealership
 
                     switch (lines[0]) {
                         case nameof(BMW):
-                        c = new BMW(lines[1], lines[2], Convert.ToInt32(lines[3]), Convert.ToDecimal(lines[4]), lines[5]);
+                        c = new BMW(lines[1], lines[2], Convert.ToInt32(lines[3]), Convert.ToDecimal(lines[4]), lines[5], lines[6]);
                         break;
                         case nameof(Toyota):
-                        c = new Toyota(lines[1], lines[2], Convert.ToInt32(lines[3]), Convert.ToDecimal(lines[4]), lines[5]);
+                        c = new Toyota(lines[1], lines[2], Convert.ToInt32(lines[3]), Convert.ToDecimal(lines[4]), lines[5], lines[6]);
                         break;
                         case nameof(Honda):
-                        c = new Honda(lines[1], lines[2], Convert.ToInt32(lines[3]), Convert.ToDecimal(lines[4]), lines[5]);
+                        c = new Honda(lines[1], lines[2], Convert.ToInt32(lines[3]), Convert.ToDecimal(lines[4]), lines[5], lines[6]);
                         break;
                         default:
-                            c = new Mercedes(lines[1], lines[2], Convert.ToInt32(lines[3]), Convert.ToDecimal(lines[4]), lines[5]);
+                            c = new Mercedes(lines[1], lines[2], Convert.ToInt32(lines[3]), Convert.ToDecimal(lines[4]), lines[5], lines[6]);
                         break;
                     }
                         

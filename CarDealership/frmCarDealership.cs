@@ -14,10 +14,47 @@ namespace CarDealership
     public partial class frmCarDealership : Form
     {
 
+        private const int totalRecords = 20;
+        private const int pageSize = 2;
+
         public frmCarDealership()
         {
             InitializeComponent();
+            dgvListings.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Index" });
+            bngPageSelect.BindingSource = bsrListings;
+            bsrListings.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
+            bsrListings.DataSource = new PageOffsetList();
         }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+            // The desired page has changed, so fetch the page of records using the "Current" offset 
+            int offset = (int)bsrListings.Current;
+            var records = new List<Record>();
+            for (int i = offset; i < offset + pageSize && i < totalRecords; i++)
+                records.Add(new Record { Index = i });
+            dgvListings.DataSource = records;
+        }
+
+        class Record
+        {
+            public int Index { get; set; }
+        }
+
+        class PageOffsetList : System.ComponentModel.IListSource
+        {
+            public bool ContainsListCollection { get; protected set; }
+
+            public System.Collections.IList GetList()
+            {
+                // Return a list of page offsets based on "totalRecords" and "pageSize"
+                var pageOffsets = new List<int>();
+                for (int offset = 0; offset < totalRecords; offset += pageSize)
+                    pageOffsets.Add(offset);
+                return pageOffsets;
+            }
+        }
+        ///
 
         //Populate cboTextBox filter menu and rich textbox upon loading form 
         private void frmCarDealership_Load(object sender, EventArgs e)
@@ -68,7 +105,7 @@ namespace CarDealership
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            var addFrm = new frmAddListing();
+            var addFrm = new frmAddListing("Bianca");
             addFrm.ShowDialog(); //Display new form to add listing
             FillListings();
             FillFilters();

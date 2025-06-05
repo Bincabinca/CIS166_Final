@@ -16,7 +16,7 @@ namespace CarDealership
 
         public Mercedes() : base() { }
 
-        public Mercedes(string model, string color, int age, decimal price, string horsepower) : base(model, color, age, price)
+        public Mercedes(string model, string color, int age, decimal price, string horsepower, string user) : base(model, color, age, price, user)
         {
             this.Horsepower = horsepower; //Initialize Horsepower field after car class constructor is called
         }

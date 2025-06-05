@@ -17,7 +17,7 @@ namespace CarDealership
         public string Perk => Engine;
         public BMW() : base() { }
 
-        public BMW(string model, string color, int age, decimal price, string engine) : base(model, color, age, price)
+        public BMW(string model, string color, int age, decimal price, string engine, string user) : base(model, color, age, price, user)
         {
             this.Engine = engine;
         }

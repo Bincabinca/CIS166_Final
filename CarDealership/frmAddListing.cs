@@ -15,9 +15,11 @@ namespace CarDealership
 {
     public partial class frmAddListing : Form
     {
-        public frmAddListing()
+        string User { get; set; }
+        public frmAddListing(string user)
         {
             InitializeComponent();
+            User = user;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -34,7 +36,8 @@ namespace CarDealership
                                         txtColor.Text.ToString(),
                                         Convert.ToInt32(txtAge.Text.ToString()),
                                         Convert.ToDecimal(txtPrice.Text.ToString()),
-                                        txtExtra.Text.ToString());
+                                        txtExtra.Text.ToString(),
+                                        User);
                         CarListingsDB.Save(newCar);
                     }
                     else if (selectedMake == nameof(Toyota))
@@ -43,7 +46,8 @@ namespace CarDealership
                                         txtColor.Text.ToString(),
                                         Convert.ToInt32(txtAge.Text.ToString()),
                                         Convert.ToDecimal(txtPrice.Text.ToString()),
-                                        txtExtra.Text.ToString());
+                                        txtExtra.Text.ToString(),
+                                        User);
                         CarListingsDB.Save(newCar);
                     }
                     else if (selectedMake == nameof(Honda))
@@ -52,7 +56,8 @@ namespace CarDealership
                                         txtColor.Text.ToString(),
                                         Convert.ToInt32(txtAge.Text.ToString()),
                                         Convert.ToDecimal(txtPrice.Text.ToString()),
-                                        txtExtra.Text.ToString());
+                                        txtExtra.Text.ToString(),
+                                        User);
                         CarListingsDB.Save(newCar);
                     }
                     else if (selectedMake == nameof(Mercedes))
@@ -61,7 +66,8 @@ namespace CarDealership
                                         txtColor.Text.ToString(),
                                         Convert.ToInt32(txtAge.Text.ToString()),
                                         Convert.ToDecimal(txtPrice.Text.ToString()),
-                                        txtExtra.Text.ToString());
+                                        txtExtra.Text.ToString(),
+                                        User);
                         CarListingsDB.Save(newCar);
                     }
                 }

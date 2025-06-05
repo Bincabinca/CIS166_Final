@@ -18,6 +18,7 @@ namespace CarDealership
         public string Color { get; set; }
         public int Age { get; set; }
         public decimal Price { get; set; }
+        public string User { get; set; }
         public Car() { }
         /// <summary>
         /// Subclasses of "Car" inherit this constructor in their constructor using the "base" keyword
@@ -26,11 +27,12 @@ namespace CarDealership
         /// <param name="color"></param>
         /// <param name="age"></param>
         /// <param name="price"></param>
-        public Car(string model, string color, int age, decimal price) {
+        public Car(string model, string color, int age, decimal price, string user) {
             this.Model = model;
             this.Color = color;
             this.Age = age;
             this.Price = price;
+            this.User = user;
         }
         /// <summary>
         /// Compares two cars based on their string representation
@@ -46,7 +48,7 @@ namespace CarDealership
         /// </summary>
         /// <returns></returns>
         public override string ToString() {
-            return $"Make: {Make}\nModel: {Model}\nColor: {Color}\nAge: {Age}\nPrice: {Price.ToString("c")}\n";
+            return $"Listed by: {User}\nMake: {Make}\nModel: {Model}\nColor: {Color}\nAge: {Age}\nPrice: {Price.ToString("c")}\n";
         }
         /// <summary>
         /// Returns a filtered string representation of the car based on the filter name and filter value

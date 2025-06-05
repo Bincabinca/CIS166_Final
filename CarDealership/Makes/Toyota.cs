@@ -16,7 +16,7 @@ namespace CarDealership
         public Toyota() : base() { }
 
 
-        public Toyota(string model, string color, int age, decimal price, string mileage) : base(model, color, age, price)
+        public Toyota(string model, string color, int age, decimal price, string mileage, string user) : base(model, color, age, price, user)
         {
             this.Mileage = mileage;
             

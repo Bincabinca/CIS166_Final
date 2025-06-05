@@ -74,12 +74,12 @@ namespace CarDealership
                 if (filterName == FilterName.Make)
                 {
                     if (car.Make == filter)
-                        return $"Model: {car.Model}\nColor: {car.Color}\nAge: {car.Age}\nPrice: {car.Price.ToString("c")}\n";
+                        return $"Listed by: {car.User}\nModel: {car.Model}\nColor: {car.Color}\nAge: {car.Age}\nPrice: {car.Price.ToString("c")}\n";
                 }
                 else if (filterName == FilterName.Color)
                 {
                     if (car.Color == filter)
-                        return $"Make: {car.Make}\nModel: {car.Model}\nAge: {car.Age}\nPrice: {car.Price.ToString("c")}\n";
+                        return $"Listed by: {car.User}\nMake: {car.Make}\nModel: {car.Model}\nAge: {car.Age}\nPrice: {car.Price.ToString("c")}\n";
                 }
                 else if (filterName == FilterName.Age)
                 {

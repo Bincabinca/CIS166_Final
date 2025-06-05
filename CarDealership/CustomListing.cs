@@ -12,6 +12,7 @@ namespace CarDealership
     /// <typeparam name="T"></typeparam>
     public class CustomListing<T> where T: ICar,IComparable<T>,IDisplayable {
         public T Car { get; set; }
+
         public CustomListing() { }
         public CustomListing(T car, DateTime dateTime) {
             Car = car;

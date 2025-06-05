@@ -17,7 +17,7 @@ namespace CarDealership
 
         public Honda() : base() { }
 
-        public Honda(string model, string color, int age, decimal price, string SafetyRating) : base(model, color, age, price)
+        public Honda(string model, string color, int age, decimal price, string SafetyRating, string user) : base(model, color, age, price, user)
         {
             this.SafetyRating = SafetyRating; //Initialize SafetyRating field after car class constructor is called
         }
