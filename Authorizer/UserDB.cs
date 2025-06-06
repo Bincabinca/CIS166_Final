@@ -11,7 +11,8 @@ namespace Authorizer
         /// <summary>
         /// lambda that retrieves the users from the stored file into a List
         /// </summary>
-        public List<string> GetUSers =>
+        /// <returns>a list of all stored users</returns>
+        public static List<string> GetUSers =>
             System.IO.File.ReadAllText(Authorizer.UsersPath).Trim().Split('|').ToList();
         
         /// <summary>
@@ -22,6 +23,7 @@ namespace Authorizer
         {
             System.IO.File.WriteAllText(Authorizer.UsersPath, string.Join("|", users));
         }
+
         /// <summary>
         /// empty constructor for serialization
         /// </summary>
