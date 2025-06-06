@@ -11,8 +11,8 @@ namespace Authorizer
         /// <summary>
         /// lambda that retrieves the users from the stored file into a List
         /// </summary>
-        /// <returns>a list of all stored users</returns>
-        public static List<string> GetUSers =>
+        /// <returns>a list of all currently stored users</returns>
+        public static List<string> GetUsers =>
             System.IO.File.ReadAllText(Authorizer.UsersPath).Trim().Split('|').ToList();
         
         /// <summary>
