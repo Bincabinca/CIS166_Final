@@ -52,4 +52,10 @@ Mercedes
 13
 13518354519
 13518354519
+Bianca|Toyota
+Fit
+Silver
+12
+6000
+40 MPG
 Bianca|

@@ -182,7 +182,7 @@
             this.bngPageSelect.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bngPageSelect.Name = "bngPageSelect";
             this.bngPageSelect.PositionItem = this.bindingNavigatorPositionItem;
-            this.bngPageSelect.Size = new System.Drawing.Size(209, 25);
+            this.bngPageSelect.Size = new System.Drawing.Size(240, 25);
             this.bngPageSelect.TabIndex = 7;
             this.bngPageSelect.Text = "bindingNavigator1";
             // 
@@ -275,6 +275,7 @@
             this.dgvListings.ReadOnly = true;
             this.dgvListings.Size = new System.Drawing.Size(579, 208);
             this.dgvListings.TabIndex = 8;
+            this.dgvListings.TabStop = false;
             // 
             // clmSeller
             // 

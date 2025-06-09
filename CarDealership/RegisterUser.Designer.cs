@@ -63,6 +63,7 @@
             this.btnCreate.TabIndex = 3;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnCancel
             // 
@@ -114,6 +115,7 @@
             this.Name = "RegisterUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register New User";
+            this.Load += new System.EventHandler(this.RegisterUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

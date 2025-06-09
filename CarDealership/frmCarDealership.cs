@@ -69,6 +69,8 @@ namespace CarDealership
         //Method to populate DataGridView with listings
         private void FillListings()
         {
+            dgvListings.Columns.Clear();
+
             // change page, fetch the page of records using the "Current" offset 
             int offset = (int)bsrListings.Current;
             var listings = CarListingsDB.GetListings().Select(l => new
@@ -86,7 +88,6 @@ namespace CarDealership
 
             var pageListings = listings.Skip(offset).Take(pageSize).ToList();
 
-            dgvListings.Columns.Clear();
             dgvListings.AutoGenerateColumns = true; // Let the grid auto-create columns
             dgvListings.DataSource = pageListings; // binds the current page to the grid view
 
@@ -138,6 +139,8 @@ namespace CarDealership
         private void btnViewAll_Click(object sender, EventArgs e)
         {
             FillListings();
+            // Return to first page of dgvListings
+            bsrListings.Position = 0;
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
