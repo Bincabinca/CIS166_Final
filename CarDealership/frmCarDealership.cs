@@ -17,6 +17,8 @@ namespace CarDealership
         private const int totalRecords = 20;
         private const int pageSize = 10;
 
+        private bool LoggedIn = false; // flag to check if user is logged in
+
         public frmCarDealership()
         {
             InitializeComponent();
