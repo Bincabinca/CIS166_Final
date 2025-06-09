@@ -40,17 +40,17 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.bngPageSelect = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvListings = new System.Windows.Forms.DataGridView();
             this.bsrListings = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clmSeller = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmMake = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +68,7 @@
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(478, 274);
+            this.btnExit.Location = new System.Drawing.Point(604, 274);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(71, 26);
@@ -79,7 +79,7 @@
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(478, 81);
+            this.btnUpload.Location = new System.Drawing.Point(604, 81);
             this.btnUpload.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(71, 26);
@@ -90,7 +90,7 @@
             // 
             // btnViewAll
             // 
-            this.btnViewAll.Location = new System.Drawing.Point(478, 51);
+            this.btnViewAll.Location = new System.Drawing.Point(604, 51);
             this.btnViewAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(71, 26);
@@ -127,6 +127,7 @@
             this.rchListings.Size = new System.Drawing.Size(302, 230);
             this.rchListings.TabIndex = 6;
             this.rchListings.Text = "";
+            this.rchListings.Visible = false;
             // 
             // btnFilter
             // 
@@ -140,7 +141,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(478, 112);
+            this.btnDelete.Location = new System.Drawing.Point(604, 112);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(71, 26);
             this.btnDelete.TabIndex = 5;
@@ -150,7 +151,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(478, 12);
+            this.btnLogin.Location = new System.Drawing.Point(604, 12);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(71, 26);
             this.btnLogin.TabIndex = 2;
@@ -174,7 +175,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2});
-            this.bngPageSelect.Location = new System.Drawing.Point(91, 283);
+            this.bngPageSelect.Location = new System.Drawing.Point(187, 276);
             this.bngPageSelect.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bngPageSelect.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bngPageSelect.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -184,6 +185,13 @@
             this.bngPageSelect.Size = new System.Drawing.Size(209, 25);
             this.bngPageSelect.TabIndex = 7;
             this.bngPageSelect.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -218,16 +226,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -248,6 +249,11 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // dgvListings
             // 
             this.dgvListings.AllowUserToAddRows = false;
@@ -267,13 +273,8 @@
             this.dgvListings.Location = new System.Drawing.Point(19, 51);
             this.dgvListings.Name = "dgvListings";
             this.dgvListings.ReadOnly = true;
-            this.dgvListings.Size = new System.Drawing.Size(443, 229);
+            this.dgvListings.Size = new System.Drawing.Size(579, 208);
             this.dgvListings.TabIndex = 8;
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // clmSeller
             // 
@@ -305,10 +306,11 @@
             // 
             // clmAge
             // 
+            this.clmAge.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.clmAge.HeaderText = "Age";
             this.clmAge.Name = "clmAge";
             this.clmAge.ReadOnly = true;
-            this.clmAge.Width = 50;
+            this.clmAge.Width = 51;
             // 
             // clmPrice
             // 
@@ -337,7 +339,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(565, 310);
+            this.ClientSize = new System.Drawing.Size(685, 310);
             this.Controls.Add(this.dgvListings);
             this.Controls.Add(this.bngPageSelect);
             this.Controls.Add(this.btnLogin);

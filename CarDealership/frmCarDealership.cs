@@ -14,8 +14,8 @@ namespace CarDealership
     public partial class frmCarDealership : Form
     {
         // set page max and size for pagination
-        private const int totalRecords = 20;
-        private const int pageSize = 10;
+        private const int totalRecords = 24;
+        private const int pageSize = 8;
 
         public frmCarDealership()
         {
@@ -28,35 +28,7 @@ namespace CarDealership
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
-            // change page, fetch the page of records using the "Current" offset 
-            int offset = (int)bsrListings.Current;
-            var listings = CarListingsDB.GetListings()
-       .Select(l => new
-       {
-           Make = l.Car.Make,
-           Model = l.Car.Model,
-           Color = l.Car.Color,
-           Age = l.Car.Age,
-           Price = l.Car.Price,
-           User = l.Car.User,
-           CreationTime = l.CreationTime,
-           //for unique stuff lol
-           Perk = (l.Car is IUniqueMember<string> unique) ? unique.Perk : null
-       })
-       .ToList();
-
-            var pageListings = listings.Skip(offset).Take(pageSize).ToList();
-
-            dgvListings.Columns.Clear();
-            dgvListings.AutoGenerateColumns = true; // Let the grid auto-create columns
-            dgvListings.DataSource = pageListings; // binds the current page to the grid view
-
-
-            //OLD LOGIC IN CASE TRAVIS IS DUMB 
-            //var records = new List<Record>();
-            //for (int i = offset; i < offset + pageSize && i < totalRecords; i++)
-            //    records.Add(new Record { Index = i });
-            //dgvListings.DataSource = records;
+            FillListings();
         }
 
         class Record
@@ -93,26 +65,43 @@ namespace CarDealership
             cboFilterBy.SelectedIndex = 0;
         }
 
-        //Method to populate rich textbox with listings
+        //Method to populate DataGridView with listings
         private void FillListings()
         {
-            // rchListings.Clear(); // REMOVE ONCE GRID VIEW GOOD
+            // change page, fetch the page of records using the "Current" offset 
+            int offset = (int)bsrListings.Current;
+            var listings = CarListingsDB.GetListings().Select(l => new
+            {
+                Make = l.Car.Make,
+                Model = l.Car.Model,
+                Color = l.Car.Color,
+                Age = l.Car.Age,
+                Price = l.Car.Price,
+                User = l.Car.User,
+                CreationTime = l.CreationTime,
+                //for unique perk
+                Perk = (l.Car is IUniqueMember<string> unique) ? unique.Perk : null
+            }).ToList();
 
-            //Commented out in case travis made a big no no and the grid view is not working as expected
+            var pageListings = listings.Skip(offset).Take(pageSize).ToList();
 
-            //foreach (var listing in listings)
-            //{
-            //    DataGridViewRow row = new DataGridViewRow();
+            dgvListings.Columns.Clear();
+            dgvListings.AutoGenerateColumns = true; // Let the grid auto-create columns
+            dgvListings.DataSource = pageListings; // binds the current page to the grid view
 
-            //    //add listing to the data grid view
-            //    dgvListings.Rows.Add(row);
-
-            //    rchListings.Text += listing.ToString();//REMOVE ONCE GRID VIEW GOOD
-            //}
+            // Adjust column widths to fit contents
+            dgvListings.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         private void FillFilteredListings(string filter)
         {
+            dgvListings.Columns.Clear();
             rchListings.Clear();
 
             var listings = CarListingsDB.GetListings();
