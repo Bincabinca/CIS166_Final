@@ -15,12 +15,12 @@ namespace CarDealership
     {
         // set page max and size for pagination
         private const int totalRecords = 20;
-        private const int pageSize = 2;
+        private const int pageSize = 10;
 
         public frmCarDealership()
         {
             InitializeComponent();
-            dgvListings.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Index" });
+            // dgvListings.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Index" });
             bngPageSelect.BindingSource = bsrListings;
             bsrListings.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bsrListings.DataSource = new PageOffsetList();
@@ -30,10 +30,33 @@ namespace CarDealership
         {
             // change page, fetch the page of records using the "Current" offset 
             int offset = (int)bsrListings.Current;
-            var records = new List<Record>();
-            for (int i = offset; i < offset + pageSize && i < totalRecords; i++)
-                records.Add(new Record { Index = i });
-            dgvListings.DataSource = records;
+            var listings = CarListingsDB.GetListings()
+       .Select(l => new
+       {
+           Make = l.Car.Make,
+           Model = l.Car.Model,
+           Color = l.Car.Color,
+           Age = l.Car.Age,
+           Price = l.Car.Price,
+           User = l.Car.User,
+           CreationTime = l.CreationTime,
+           //for unique stuff lol
+           Perk = (l.Car is IUniqueMember<string> unique) ? unique.Perk : null
+       })
+       .ToList();
+
+            var pageListings = listings.Skip(offset).Take(pageSize).ToList();
+
+            dgvListings.Columns.Clear();
+            dgvListings.AutoGenerateColumns = true; // Let the grid auto-create columns
+            dgvListings.DataSource = pageListings; // binds the current page to the grid view
+
+
+            //OLD LOGIC IN CASE TRAVIS IS DUMB 
+            //var records = new List<Record>();
+            //for (int i = offset; i < offset + pageSize && i < totalRecords; i++)
+            //    records.Add(new Record { Index = i });
+            //dgvListings.DataSource = records;
         }
 
         class Record
@@ -69,23 +92,23 @@ namespace CarDealership
             cboFilterBy.Items.AddRange(Filters.Get());
             cboFilterBy.SelectedIndex = 0;
         }
-        
+
         //Method to populate rich textbox with listings
         private void FillListings()
         {
-            //dgvListings.Columns.Clear();
-            rchListings.Clear();//REMOVE ONCE GRID VIEW GOOD
+            // rchListings.Clear(); // REMOVE ONCE GRID VIEW GOOD
 
-            var listings = CarListingsDB.GetListings();
-            foreach (var listing in listings)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                
-                //add listing to the data grid view
-                dgvListings.Rows.Add(row);
+            //Commented out in case travis made a big no no and the grid view is not working as expected
 
-                rchListings.Text += listing.ToString();//REMOVE ONCE GRID VIEW GOOD
-            }
+            //foreach (var listing in listings)
+            //{
+            //    DataGridViewRow row = new DataGridViewRow();
+
+            //    //add listing to the data grid view
+            //    dgvListings.Rows.Add(row);
+
+            //    rchListings.Text += listing.ToString();//REMOVE ONCE GRID VIEW GOOD
+            //}
         }
 
         private void FillFilteredListings(string filter)
@@ -114,10 +137,13 @@ namespace CarDealership
         {
             var addFrm = new frmAddListing("Bianca");
             addFrm.ShowDialog(); //Display new form to add listing
-            FillListings();
+         
             FillFilters();
+
+            // Reset the position of the binding source to the first page, like dynamically refreshing the grid view
+            bsrListings.Position = 0;  
         }
-        
+
         //Show all unfiltered listings
         private void btnViewAll_Click(object sender, EventArgs e)
         {
@@ -146,7 +172,7 @@ namespace CarDealership
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var deleteFrm = new frmDeleteListing(CarListingsDB.GetListings(),cboFilterBy);
+            var deleteFrm = new frmDeleteListing(CarListingsDB.GetListings(), cboFilterBy);
             deleteFrm.ShowDialog();
 
             FillListings();
