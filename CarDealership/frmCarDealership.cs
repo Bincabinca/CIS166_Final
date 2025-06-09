@@ -16,7 +16,6 @@ namespace CarDealership
         // set page max and size for pagination
         private const int totalRecords = 24;
         private const int pageSize = 8;
-
         public frmCarDealership()
         {
             InitializeComponent();
