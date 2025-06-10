@@ -35,6 +35,7 @@
             this.btnViewAll = new System.Windows.Forms.Button();
             this.cboFilterBy = new System.Windows.Forms.ComboBox();
             this.lblFilterBy = new System.Windows.Forms.Label();
+            this.rchListings = new System.Windows.Forms.RichTextBox();
             this.btnFilter = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -58,7 +59,7 @@
             this.clmPerk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsrListings = new System.Windows.Forms.BindingSource(this.components);
-            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnMoreInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bngPageSelect)).BeginInit();
             this.bngPageSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListings)).BeginInit();
@@ -68,11 +69,11 @@
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(603, 255);
+            this.btnExit.Location = new System.Drawing.Point(604, 274);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(71, 26);
-            this.btnExit.TabIndex = 8;
+            this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -83,7 +84,7 @@
             this.btnUpload.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(71, 26);
-            this.btnUpload.TabIndex = 5;
+            this.btnUpload.TabIndex = 4;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
@@ -94,7 +95,7 @@
             this.btnViewAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(71, 26);
-            this.btnViewAll.TabIndex = 4;
+            this.btnViewAll.TabIndex = 3;
             this.btnViewAll.Text = "View All";
             this.btnViewAll.UseVisualStyleBackColor = true;
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
@@ -107,7 +108,7 @@
             this.cboFilterBy.Margin = new System.Windows.Forms.Padding(2);
             this.cboFilterBy.Name = "cboFilterBy";
             this.cboFilterBy.Size = new System.Drawing.Size(264, 21);
-            this.cboFilterBy.TabIndex = 1;
+            this.cboFilterBy.TabIndex = 0;
             // 
             // lblFilterBy
             // 
@@ -119,12 +120,22 @@
             this.lblFilterBy.TabIndex = 5;
             this.lblFilterBy.Text = "Filter By:";
             // 
+            // rchListings
+            // 
+            this.rchListings.Location = new System.Drawing.Point(19, 51);
+            this.rchListings.Margin = new System.Windows.Forms.Padding(2);
+            this.rchListings.Name = "rchListings";
+            this.rchListings.Size = new System.Drawing.Size(302, 230);
+            this.rchListings.TabIndex = 6;
+            this.rchListings.Text = "";
+            this.rchListings.Visible = false;
+            // 
             // btnFilter
             // 
             this.btnFilter.Location = new System.Drawing.Point(341, 12);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(71, 26);
-            this.btnFilter.TabIndex = 2;
+            this.btnFilter.TabIndex = 1;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
@@ -134,7 +145,7 @@
             this.btnDelete.Location = new System.Drawing.Point(604, 112);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(71, 26);
-            this.btnDelete.TabIndex = 6;
+            this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -144,7 +155,7 @@
             this.btnLogin.Location = new System.Drawing.Point(604, 12);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(71, 26);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -165,7 +176,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2});
-            this.bngPageSelect.Location = new System.Drawing.Point(187, 258);
+            this.bngPageSelect.Location = new System.Drawing.Point(187, 276);
             this.bngPageSelect.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bngPageSelect.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bngPageSelect.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -263,7 +274,7 @@
             this.dgvListings.Location = new System.Drawing.Point(19, 51);
             this.dgvListings.Name = "dgvListings";
             this.dgvListings.ReadOnly = true;
-            this.dgvListings.Size = new System.Drawing.Size(572, 199);
+            this.dgvListings.Size = new System.Drawing.Size(579, 208);
             this.dgvListings.TabIndex = 8;
             this.dgvListings.TabStop = false;
             // 
@@ -326,14 +337,15 @@
             this.clmDate.ReadOnly = true;
             this.clmDate.Width = 50;
             // 
-            // btnLogout
+            // btnMoreInfo
             // 
-            this.btnLogout.Location = new System.Drawing.Point(604, 224);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(68, 26);
-            this.btnLogout.TabIndex = 7;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnMoreInfo.Location = new System.Drawing.Point(604, 144);
+            this.btnMoreInfo.Name = "btnMoreInfo";
+            this.btnMoreInfo.Size = new System.Drawing.Size(75, 24);
+            this.btnMoreInfo.TabIndex = 9;
+            this.btnMoreInfo.Text = "More Info";
+            this.btnMoreInfo.UseVisualStyleBackColor = true;
+            this.btnMoreInfo.Click += new System.EventHandler(this.btnMoreInfo_Click);
             // 
             // frmCarDealership
             // 
@@ -341,13 +353,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(685, 290);
-            this.Controls.Add(this.btnLogout);
+            this.ClientSize = new System.Drawing.Size(685, 310);
+            this.Controls.Add(this.btnMoreInfo);
             this.Controls.Add(this.dgvListings);
             this.Controls.Add(this.bngPageSelect);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnFilter);
+            this.Controls.Add(this.rchListings);
             this.Controls.Add(this.lblFilterBy);
             this.Controls.Add(this.cboFilterBy);
             this.Controls.Add(this.btnViewAll);
@@ -375,6 +388,7 @@
         private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.ComboBox cboFilterBy;
         private System.Windows.Forms.Label lblFilterBy;
+        private System.Windows.Forms.RichTextBox rchListings;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnLogin;
@@ -398,7 +412,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPerk;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
-        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnMoreInfo;
     }
 }
 

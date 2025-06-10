@@ -247,6 +247,11 @@ namespace CarDealership
             dgvListings.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
+        private void btnMoreInfo_Click(object sender, EventArgs e)
+        {
 
+            //Comments commentForm = new Comments(dgvListings.SelectedCells.ToString(), CarListingsDB.GetListings());
+        
+        }
     }
 }
