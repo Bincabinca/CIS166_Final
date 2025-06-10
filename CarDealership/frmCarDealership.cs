@@ -20,6 +20,9 @@ namespace CarDealership
         private bool LoggedIn = false;
 
         // Add an authorizer and userdb in here
+        public Authorizer authorizer = new Authorizer();
+        public List<string> users = UserDB.GetUsers();
+
         public frmCarDealership()
         {
             InitializeComponent();
