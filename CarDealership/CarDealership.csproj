@@ -54,6 +54,7 @@
     <Compile Include="Comments.Designer.cs">
       <DependentUpon>Comments.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommentStorage.cs" />
     <Compile Include="DatabaseFiles\CarAgeRangesDB.cs" />
     <Compile Include="DatabaseFiles\CarColorsDB.cs" />
     <Compile Include="DatabaseFiles\CarMakesDB.cs" />
