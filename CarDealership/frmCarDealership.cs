@@ -58,6 +58,7 @@ namespace CarDealership
         {
             FillListings();
             FillFilters();
+            btnLogout.Visible = false;
         }
 
         //Method to populate cboTextBox filter menu
@@ -106,7 +107,6 @@ namespace CarDealership
         private void FillFilteredListings(string filter)
         {
             dgvListings.Columns.Clear();
-            rchListings.Clear();
 
             var listings = CarListingsDB.GetListings();
 
@@ -120,13 +120,6 @@ namespace CarDealership
             else if (CarPriceRangesDB.GetRanges().Contains(filter))
                 filterName = FilterName.Price;
 
-            foreach (var listing in listings)
-            {
-                rchListings.Text += listing.GetFilteredString(filterName, filter);
-                // Filter datagridview listing
-
-
-            }
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -183,6 +176,8 @@ namespace CarDealership
             //Open UserLogin form
             UserLogin userLoginForm = new UserLogin();
             userLoginForm.ShowDialog();
+
+            btnLogout.Visible = true; //Logout button doesn't appear unless user logs in
         }
     }
 }
