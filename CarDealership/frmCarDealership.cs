@@ -26,7 +26,7 @@ namespace CarDealership
         public frmCarDealership()
         {
             InitializeComponent();
-            // dgvListings.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Index" });
+
             bngPageSelect.BindingSource = bsrListings;
             bsrListings.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bsrListings.DataSource = new PageOffsetList();
@@ -96,14 +96,8 @@ namespace CarDealership
             dgvListings.AutoGenerateColumns = true; // Let the grid auto-create columns
             dgvListings.DataSource = pageListings; // binds the current page to the grid view
 
-            // Adjust column widths to fit contents
-            dgvListings.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvListings.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvListings.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvListings.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvListings.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvListings.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvListings.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            // Adjust column widths to fit contents with the dgvAdjust method
+            dgvAdjust();
         }
 
         private void FillFilteredListings(string filter)
@@ -123,13 +117,70 @@ namespace CarDealership
             else if (CarPriceRangesDB.GetRanges().Contains(filter))
                 filterName = FilterName.Price;
 
-            foreach (var listing in listings)
+            // Check if the filter is for Color, since it has a different handling
+            if (filterName == FilterName.Color)
             {
-                rchListings.Text += listing.GetFilteredString(filterName, filter);
-                // Filter datagridview listing
 
+                // Filter listings based on the selected filter
+                var filteredListings = listings
+                      // Use LINQ to filter listings based on the selected filter
+                      .Where(l => l.GetFilteredString(filterName, filter) != null)
+
+                      .Select(l => new
+                      {
+                          // Select the properties you want to display in the DataGridView
+                          Make = l.Car.Make,
+                          Model = l.Car.Model,
+                          Age = l.Car.Age,
+                          Price = l.Car.Price,
+                          User = l.Car.User,
+                          CreationTime = l.CreationTime,
+                          //for unique perk
+                          Perk = (l.Car is IUniqueMember<string> unique) ? unique.Perk : null
+                      }).ToList();
+
+                dgvListings.AutoGenerateColumns = true; // Let the grid auto-create columns
+                dgvListings.DataSource = filteredListings; // binds the current page to the grid view
+                dgvAdjust();
 
             }
+            else
+
+            { // Filter listings based on the selected filter
+                var filteredListings = listings
+                      // Use LINQ to filter listings based on the selected filter
+                      .Where(l => l.GetFilteredString(filterName, filter) != null)
+
+                      .Select(l => new
+                      {
+                          // Select the properties you want to display in the DataGridView
+                          Make = l.Car.Make,
+                          Model = l.Car.Model,
+                          Color = l.Car.Color,
+                          Age = l.Car.Age,
+                          Price = l.Car.Price,
+                          User = l.Car.User,
+                          CreationTime = l.CreationTime,
+                          //for unique perk
+                          Perk = (l.Car is IUniqueMember<string> unique) ? unique.Perk : null
+                      }).ToList();
+
+                dgvListings.AutoGenerateColumns = true; // Let the grid auto-create columns
+                dgvListings.DataSource = filteredListings; // binds the current page to the grid view
+                dgvAdjust();
+
+            }
+
+
+
+
+            //foreach (var listing in listings)
+            //{
+            //    rchListings.Text += listing.GetFilteredString(filterName, filter);
+            //    // Filter datagridview listing
+
+
+            //}
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -187,5 +238,19 @@ namespace CarDealership
             UserLogin userLoginForm = new UserLogin();
             userLoginForm.ShowDialog();
         }
+
+        private void dgvAdjust()
+        {
+            // Adjust column widths to fit contents
+            dgvListings.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvListings.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+        }
+
+
     }
 }

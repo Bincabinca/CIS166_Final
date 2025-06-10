@@ -16,5 +16,15 @@ namespace CarDealership
         {
             InitializeComponent();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close(); //Close the comments form
+        }
+
+        private void btnComment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
