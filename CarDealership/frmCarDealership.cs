@@ -36,18 +36,15 @@ namespace CarDealership
             FillListings();
         }
 
-        class Record
-        {
-            public int Index { get; set; }
-        }
+        
 
-        class PageOffsetList : System.ComponentModel.IListSource
+        class PageOffsetList : IListSource
         {
             public bool ContainsListCollection { get; protected set; }
 
             public System.Collections.IList GetList()
             {
-                // Return a list of page offsets based on "totalRecords" and "pageSize"
+                // Return a list of page offsets based on total Records and "pageSize"
                 var pageOffsets = new List<int>();
                 for (int offset = 0; offset < CarListingsDB.GetListings().Count; offset += pageSize)
                     pageOffsets.Add(offset);
