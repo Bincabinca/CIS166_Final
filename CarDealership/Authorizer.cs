@@ -19,14 +19,18 @@ namespace CarDealership {
             // Generates a mapping of characters in the password to random uppercase letters
             Dictionary<string,string> output = new Dictionary<string,string>();
 
-            List<string> charlist = password.Split().ToList();
-
-            foreach (string s in charlist ) {
-                
-                output.Add(s, ((char)rand.Next(65,91)).ToString());
-
-
+            foreach (char c in password)
+            {
+                output[c.ToString()] = ((char)rand.Next(65, 91)).ToString();
             }
+            //List<string> charlist = password.ToCharArray();
+
+            //foreach (string s in charlist ) {
+
+            //    output.Add(s, ((char)rand.Next(65,91)).ToString());
+
+
+            //}
             return output;
         }
       

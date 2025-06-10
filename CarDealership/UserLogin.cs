@@ -32,8 +32,31 @@ namespace CarDealership
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
             if (IsValid())
             {
+                string username = txtUsername.Text.Trim();
+                string password = txtPassword.Text;
+
+                // Read all users from the file
+                var lines = System.IO.File.Exists(Authorizer.UsersPath)
+                    ? System.IO.File.ReadAllLines(Authorizer.UsersPath)
+                    : new string[0];
+
+                // Check for a matching username and key
+                bool authenticated = lines.Any(line =>
+                    line.Equals($"{username}|{password}", StringComparison.OrdinalIgnoreCase));
+
+                if (authenticated)
+                {
+                    MessageBox.Show("Login successful!", "Success");
+                    this.DialogResult = DialogResult.OK; // Indicate success to the calling form
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password.", "Login Failed");
+                }
             }
         }
 

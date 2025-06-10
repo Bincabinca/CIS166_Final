@@ -236,6 +236,20 @@ namespace CarDealership
         {
             //Open UserLogin form
             UserLogin userLoginForm = new UserLogin();
+            userLoginForm.FormClosing += (s, args) =>
+            {
+                // Check if the user logged in successfully
+                if (userLoginForm.DialogResult == DialogResult.OK)
+                {
+                    LoggedIn = true;
+                    MessageBox.Show("You are now logged in.", "Login Successful");
+                }
+                else
+                {
+                    LoggedIn = false;
+                    MessageBox.Show("Login failed. Please try again.", "Login Failed");
+                }
+            };
             userLoginForm.ShowDialog();
         }
 

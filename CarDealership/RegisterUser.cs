@@ -27,6 +27,30 @@ namespace CarDealership
         {
             if (IsValid())
             {
+                string username = txtUsername.Text.Trim();
+                string password = txtPassword.Text;
+
+
+                var lines = System.IO.File.Exists(Authorizer.UsersPath)
+                    ? System.IO.File.ReadAllLines(Authorizer.UsersPath)
+                    : new string[0];
+
+                bool usersExists = lines.Any(line =>
+                line.StartsWith(username + "|",StringComparison.OrdinalIgnoreCase));
+
+                if (usersExists)
+                {
+                    MessageBox.Show("Username already exists. Please choose a different username.", "Registration Error");
+                }
+                else
+                {
+          
+                    string userEntry = $"{username}|{password}";
+
+                    System.IO.File.AppendAllText(Authorizer.UsersPath, userEntry + Environment.NewLine);
+                    MessageBox.Show("User created successfully!", "Success");
+                    this.Close();
+                }
             }
         }
         //Validate all input before creating login

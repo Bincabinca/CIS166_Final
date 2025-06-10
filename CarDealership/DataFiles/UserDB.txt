@@ -1,4 +1,7 @@
-﻿Bianca
-PASSWORD|Blake
-DROWSSAP|Travis
-NOTAPASSWORD|
+﻿Bianca|PASSWORD
+Blake|DROWSSAP
+Travis|NOTAPASSWORD
+Yeet|IRRK
+Test|TEST
+Monkeyman|banana
+User|PASS
