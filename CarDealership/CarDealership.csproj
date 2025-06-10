@@ -47,10 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+
     <Compile Include="Authorizer.cs" />
-=======
->>>>>>> 67d0f077452360cce43e3a4ac4a41a9da539925f
+
     <Compile Include="Comments.cs">
       <SubType>Form</SubType>
     </Compile>
