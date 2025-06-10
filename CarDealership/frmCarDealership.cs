@@ -21,11 +21,12 @@ namespace CarDealership
         // Add an authorizer and userdb in here
         public Authorizer authorizer = new Authorizer();
         public List<string> users = UserDB.GetUsers();
+        public int idx = -1; // index of the selected listing in the database
 
         public frmCarDealership()
         {
             InitializeComponent();
-
+            btnMoreInfo.Enabled = false;
             bngPageSelect.BindingSource = bsrListings;
             bsrListings.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bsrListings.DataSource = new PageOffsetList();
@@ -250,8 +251,25 @@ namespace CarDealership
         private void btnMoreInfo_Click(object sender, EventArgs e)
         {
 
-            //Comments commentForm = new Comments(dgvListings.SelectedCells.ToString(), CarListingsDB.GetListings());
-        
+            var listings = CarListingsDB.GetListings();
+            Comments commentsfrm = new Comments(listings[idx].ToString(),listings);
+            commentsfrm.ShowDialog();
+
+        }
+
+        private void dgvListings_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+            
+            // get selected row in reference to the listings db
+            idx = (pageSize * bsrListings.Position ) + e.RowIndex;
+            btnMoreInfo.Enabled = true; // Enable the More Info button when a row is selected
+
+        }
+
+        private void dgvListings_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e) {
+
+            // convert to double click args and pass to the CellContentClick event handler
+            DataGridViewCellEventArgs passArgs = new DataGridViewCellEventArgs(e.ColumnIndex, e.RowIndex);
+            dgvListings_CellContentClick(sender, passArgs);
         }
     }
 }

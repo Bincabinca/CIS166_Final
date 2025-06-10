@@ -58,8 +58,8 @@
             this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPerk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsrListings = new System.Windows.Forms.BindingSource(this.components);
             this.btnMoreInfo = new System.Windows.Forms.Button();
+            this.bsrListings = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bngPageSelect)).BeginInit();
             this.bngPageSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListings)).BeginInit();
@@ -274,9 +274,12 @@
             this.dgvListings.Location = new System.Drawing.Point(19, 51);
             this.dgvListings.Name = "dgvListings";
             this.dgvListings.ReadOnly = true;
+            this.dgvListings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListings.Size = new System.Drawing.Size(579, 208);
             this.dgvListings.TabIndex = 8;
             this.dgvListings.TabStop = false;
+            this.dgvListings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListings_CellContentClick);
+            this.dgvListings.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListings_CellMouseClick);
             // 
             // clmSeller
             // 
