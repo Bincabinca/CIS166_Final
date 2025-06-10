@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CarDealership
 {
     /// <summary>
-    /// Abstract class for Car-like objects that implement ICar, Iisplayable,and IComparable
+    /// Abstract class for Car-like objects that implement ICar, Iisplayable,and IComparable 
     /// </summary>
     public abstract class Car : IDisplayable, ICar, IComparable<Car> {
         

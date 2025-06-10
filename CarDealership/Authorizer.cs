@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.IO;
 
 
-namespace CarDealership.Authorizer {
+namespace CarDealership {
     public class  Authorizer {
         
         public const string UsersPath = @"..\..\DataFiles\UserDB.txt";
