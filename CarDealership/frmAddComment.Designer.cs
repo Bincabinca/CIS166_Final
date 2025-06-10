@@ -44,6 +44,7 @@
             this.btnSubmitComment.TabIndex = 1;
             this.btnSubmitComment.Text = "Submit";
             this.btnSubmitComment.UseVisualStyleBackColor = true;
+            this.btnSubmitComment.Click += new System.EventHandler(this.btnSubmitComment_Click);
             // 
             // btnCancel
             // 
@@ -53,11 +54,14 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmAddComment
             // 
+            this.AcceptButton = this.btnSubmitComment;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(376, 238);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmitComment);

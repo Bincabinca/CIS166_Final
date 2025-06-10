@@ -1,1 +1,10 @@
-﻿
+|=Listed by: Bianca
+Make: Honda
+Model: Car
+Color: Green
+Age: 4
+Price: $8,900.00
+Safety Rating: 2/5
+4/25/2024 4:41:13 PM
+
+|good brand|Seciond comment|=

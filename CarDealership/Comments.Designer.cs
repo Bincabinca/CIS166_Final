@@ -58,6 +58,7 @@
             // 
             this.txtComment.Location = new System.Drawing.Point(12, 48);
             this.txtComment.Name = "txtComment";
+            this.txtComment.ReadOnly = true;
             this.txtComment.Size = new System.Drawing.Size(353, 190);
             this.txtComment.TabIndex = 3;
             this.txtComment.Text = "";

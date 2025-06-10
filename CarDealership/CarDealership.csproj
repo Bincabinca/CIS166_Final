@@ -59,6 +59,7 @@
     <Compile Include="DatabaseFiles\CarColorsDB.cs" />
     <Compile Include="DatabaseFiles\CarMakesDB.cs" />
     <Compile Include="DatabaseFiles\CarPriceRangesDB.cs" />
+    <Compile Include="DatabaseFiles\CommentsDB.cs" />
     <Compile Include="Filters.cs" />
     <Compile Include="frmAddComment.cs">
       <SubType>Form</SubType>

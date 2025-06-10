@@ -14,6 +14,9 @@ namespace CarDealership
 {
     public partial class frmCarDealership : Form
     {
+        // Dictionary to hold comments for each listing
+        public Dictionary<string,List<string>> ListingComments = new Dictionary<string, List<string>>();
+
         // set page max and size for pagination
         private const int pageSize = 8;
         private bool LoggedIn = false;
@@ -28,8 +31,9 @@ namespace CarDealership
             InitializeComponent();
             btnMoreInfo.Enabled = false;
             bngPageSelect.BindingSource = bsrListings;
-            bsrListings.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
+            bsrListings.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
             bsrListings.DataSource = new PageOffsetList();
+            ListingComments = CommentsDB.LoadComments();
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
@@ -252,7 +256,7 @@ namespace CarDealership
         {
 
             var listings = CarListingsDB.GetListings();
-            Comments commentsfrm = new Comments(listings[idx].ToString(),listings);
+            Comments commentsfrm = new Comments(listings[idx].ToString(),listings,ListingComments);
             commentsfrm.ShowDialog();
 
         }
