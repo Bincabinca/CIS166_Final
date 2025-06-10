@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace Authorizer
+namespace CarDealership.Authorizer
 {
     public class UserDB
     {

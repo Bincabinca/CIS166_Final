@@ -2,9 +2,10 @@
 using System.Linq;
 using System;
 using System.Runtime.CompilerServices;
+using System.IO;
 
 
-namespace Authorizer {
+namespace CarDealership.Authorizer {
     public class  Authorizer {
         
         public const string UsersPath = @"..\..\DataFiles\UserDB.txt";

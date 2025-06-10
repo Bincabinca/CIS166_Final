@@ -18,6 +18,7 @@ namespace CarDealership
         private const int pageSize = 8;
         private bool LoggedIn = false;
 
+        // Add an authorizer and userdb in here
         public frmCarDealership()
         {
             InitializeComponent();
