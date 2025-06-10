@@ -54,11 +54,19 @@
     <Compile Include="Comments.Designer.cs">
       <DependentUpon>Comments.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommentStorage.cs" />
     <Compile Include="DatabaseFiles\CarAgeRangesDB.cs" />
     <Compile Include="DatabaseFiles\CarColorsDB.cs" />
     <Compile Include="DatabaseFiles\CarMakesDB.cs" />
     <Compile Include="DatabaseFiles\CarPriceRangesDB.cs" />
+    <Compile Include="DatabaseFiles\CommentsDB.cs" />
     <Compile Include="Filters.cs" />
+    <Compile Include="frmAddComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddComment.Designer.cs">
+      <DependentUpon>frmAddComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDeleteListing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +113,9 @@
     <EmbeddedResource Include="Comments.resx">
       <DependentUpon>Comments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddComment.resx">
+      <DependentUpon>frmAddComment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddListing.resx">
       <DependentUpon>frmAddListing.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +161,7 @@
     <Content Include="DataFiles\InventoryItems.txt" />
     <Content Include="DataFiles\CarPriceRanges.txt" />
     <Content Include="DataFiles\ListingTimes.txt" />
+    <Content Include="DataFiles\ListingComments.txt" />
     <Content Include="DataFiles\UserDB.txt" />
   </ItemGroup>
   <ItemGroup>

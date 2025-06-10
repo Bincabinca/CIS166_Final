@@ -14,22 +14,26 @@ namespace CarDealership
 {
     public partial class frmCarDealership : Form
     {
+        // Dictionary to hold comments for each listing
+        public Dictionary<string,List<string>> ListingComments = new Dictionary<string, List<string>>();
+
         // set page max and size for pagination
-        private const int totalRecords = 24;
         private const int pageSize = 8;
         private bool LoggedIn = false;
 
         // Add an authorizer and userdb in here
         public Authorizer authorizer = new Authorizer();
         public List<string> users = UserDB.GetUsers();
+        public int idx = -1; // index of the selected listing in the database
 
         public frmCarDealership()
         {
             InitializeComponent();
-
+            btnMoreInfo.Enabled = false;
             bngPageSelect.BindingSource = bsrListings;
-            bsrListings.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
+            bsrListings.CurrentChanged += new EventHandler(bindingSource1_CurrentChanged);
             bsrListings.DataSource = new PageOffsetList();
+            ListingComments = CommentsDB.LoadComments();
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
@@ -37,20 +41,17 @@ namespace CarDealership
             FillListings();
         }
 
-        class Record
-        {
-            public int Index { get; set; }
-        }
+        
 
-        class PageOffsetList : System.ComponentModel.IListSource
+        class PageOffsetList : IListSource
         {
             public bool ContainsListCollection { get; protected set; }
 
             public System.Collections.IList GetList()
             {
-                // Return a list of page offsets based on "totalRecords" and "pageSize"
+                // Return a list of page offsets based on total Records and "pageSize"
                 var pageOffsets = new List<int>();
-                for (int offset = 0; offset < totalRecords; offset += pageSize)
+                for (int offset = 0; offset < CarListingsDB.GetListings().Count; offset += pageSize)
                     pageOffsets.Add(offset);
                 return pageOffsets;
             }
@@ -251,6 +252,28 @@ namespace CarDealership
             dgvListings.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
+        private void btnMoreInfo_Click(object sender, EventArgs e)
+        {
 
+            var listings = CarListingsDB.GetListings();
+            Comments commentsfrm = new Comments(listings[idx].ToString(),listings,ListingComments);
+            commentsfrm.ShowDialog();
+
+        }
+
+        private void dgvListings_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+            
+            // get selected row in reference to the listings db
+            idx = (pageSize * bsrListings.Position ) + e.RowIndex;
+            btnMoreInfo.Enabled = true; // Enable the More Info button when a row is selected
+
+        }
+
+        private void dgvListings_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e) {
+
+            // convert to double click args and pass to the CellContentClick event handler
+            DataGridViewCellEventArgs passArgs = new DataGridViewCellEventArgs(e.ColumnIndex, e.RowIndex);
+            dgvListings_CellContentClick(sender, passArgs);
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace CarDealership
     {
         private const string CarsPath = @"..\..\DataFiles\InventoryItems.txt";
         private const string TimesPath = @"..\..\DataFiles\ListingTimes.txt";
+        public const string ListingCommentsPath = @"..\..\DataFiles\ListingComments.txt";
 
 
         public static List<CustomListing<Car>> GetListings()
