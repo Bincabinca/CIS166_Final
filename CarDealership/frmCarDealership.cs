@@ -22,7 +22,7 @@ namespace CarDealership
         public frmCarDealership()
         {
             InitializeComponent();
-            // dgvListings.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Index" });
+
             bngPageSelect.BindingSource = bsrListings;
             bsrListings.CurrentChanged += new System.EventHandler(bindingSource1_CurrentChanged);
             bsrListings.DataSource = new PageOffsetList();
