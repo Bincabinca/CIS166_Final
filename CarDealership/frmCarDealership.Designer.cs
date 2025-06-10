@@ -50,7 +50,6 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvListings = new System.Windows.Forms.DataGridView();
-            this.bsrListings = new System.Windows.Forms.BindingSource(this.components);
             this.clmSeller = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmMake = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +58,8 @@
             this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPerk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsrListings = new System.Windows.Forms.BindingSource(this.components);
+            this.btnMoreInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bngPageSelect)).BeginInit();
             this.bngPageSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListings)).BeginInit();
@@ -336,6 +337,16 @@
             this.clmDate.ReadOnly = true;
             this.clmDate.Width = 50;
             // 
+            // btnMoreInfo
+            // 
+            this.btnMoreInfo.Location = new System.Drawing.Point(604, 144);
+            this.btnMoreInfo.Name = "btnMoreInfo";
+            this.btnMoreInfo.Size = new System.Drawing.Size(75, 24);
+            this.btnMoreInfo.TabIndex = 9;
+            this.btnMoreInfo.Text = "More Info";
+            this.btnMoreInfo.UseVisualStyleBackColor = true;
+            this.btnMoreInfo.Click += new System.EventHandler(this.btnMoreInfo_Click);
+            // 
             // frmCarDealership
             // 
             this.AcceptButton = this.btnFilter;
@@ -343,6 +354,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(685, 310);
+            this.Controls.Add(this.btnMoreInfo);
             this.Controls.Add(this.dgvListings);
             this.Controls.Add(this.bngPageSelect);
             this.Controls.Add(this.btnLogin);
@@ -400,6 +412,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPerk;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
+        private System.Windows.Forms.Button btnMoreInfo;
     }
 }
 

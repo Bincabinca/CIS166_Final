@@ -31,7 +31,7 @@
             this.cboListing = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnComment = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtComment = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // cboListing
@@ -63,20 +63,20 @@
             this.btnComment.UseVisualStyleBackColor = true;
             this.btnComment.Click += new System.EventHandler(this.btnComment_Click);
             // 
-            // richTextBox1
+            // txtComment
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(52, 104);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(350, 194);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.txtComment.Location = new System.Drawing.Point(52, 104);
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(350, 194);
+            this.txtComment.TabIndex = 3;
+            this.txtComment.Text = "";
             // 
             // Comments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 450);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtComment);
             this.Controls.Add(this.btnComment);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.cboListing);
@@ -91,6 +91,6 @@
         private System.Windows.Forms.ComboBox cboListing;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnComment;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtComment;
     }
 }
