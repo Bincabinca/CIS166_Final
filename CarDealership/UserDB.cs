@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace CarDealership.Authorizer
+namespace CarDealership
 {
     public class UserDB
     {
@@ -12,8 +12,10 @@ namespace CarDealership.Authorizer
         /// lambda that retrieves the users from the stored file into a List 
         /// </summary>
         /// <returns>a list of all currently stored users</returns>
-        public static List<string> GetUsers =>
-            System.IO.File.ReadAllText(Authorizer.UsersPath).Trim().Split('|').ToList();
+        public static List<string> GetUsers() {
+            return System.IO.File.ReadAllText(Authorizer.UsersPath).Trim().Split('|').ToList();
+        }
+            
         
         /// <summary>
         /// write a list of user strings back to the stored file (overwrite)
