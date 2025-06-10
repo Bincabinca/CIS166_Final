@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace CarDealership
 {
+    /// <summary>
+    /// Adda comment to the specified listing
+    /// </summary>
     public partial class Comments : Form
     {
         public Comments()
