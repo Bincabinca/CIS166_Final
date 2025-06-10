@@ -15,7 +15,6 @@ namespace CarDealership
     public partial class frmCarDealership : Form
     {
         // set page max and size for pagination
-        //private const int totalRecords = 24;
         private const int pageSize = 8;
         private bool LoggedIn = false;
 
@@ -50,7 +49,7 @@ namespace CarDealership
             {
                 // Return a list of page offsets based on "totalRecords" and "pageSize"
                 var pageOffsets = new List<int>();
-                for (int offset = 0; offset < totalRecords; offset += pageSize)
+                for (int offset = 0; offset < CarListingsDB.GetListings().Count; offset += pageSize)
                     pageOffsets.Add(offset);
                 return pageOffsets;
             }
