@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CarDealership
 {
@@ -121,18 +122,21 @@ namespace CarDealership
             foreach (var listing in listings)
             {
                 rchListings.Text += listing.GetFilteredString(filterName, filter);
+                // Filter datagridview listing
+
+
             }
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            var addFrm = new frmAddListing("Bianca");
+            var addFrm = new frmAddListing();
             addFrm.ShowDialog(); //Display new form to add listing
-         
-            FillFilters();
 
-            // Reset the position of the binding source to the first page, like dynamically refreshing the grid view
-            bsrListings.Position = 0;  
+            FillListings();
+            // Return to first page of dgvListings
+            bsrListings.Position = 0;
+            FillFilters();
         }
 
         //Show all unfiltered listings
@@ -155,6 +159,7 @@ namespace CarDealership
                 string filter = cboFilterBy.SelectedItem.ToString();
                 FillFilteredListings(filter.Trim());
             }
+
         }
 
         //Close the form

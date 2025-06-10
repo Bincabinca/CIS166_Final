@@ -37,7 +37,7 @@ namespace CarDealership
             }
         }
 
-        //Validate all input before loging in
+        //Validate all input before logging in
         public bool IsValid()
         {
             bool success = true;

@@ -19,7 +19,6 @@ namespace CarDealership
         public Toyota(string model, string color, int age, decimal price, string mileage, string user) : base(model, color, age, price, user)
         {
             this.Mileage = mileage;
-            
         }
 
         public override string ToString()

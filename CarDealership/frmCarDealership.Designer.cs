@@ -182,7 +182,7 @@
             this.bngPageSelect.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bngPageSelect.Name = "bngPageSelect";
             this.bngPageSelect.PositionItem = this.bindingNavigatorPositionItem;
-            this.bngPageSelect.Size = new System.Drawing.Size(240, 25);
+            this.bngPageSelect.Size = new System.Drawing.Size(209, 25);
             this.bngPageSelect.TabIndex = 7;
             this.bngPageSelect.Text = "bindingNavigator1";
             // 
@@ -282,6 +282,7 @@
             this.clmSeller.HeaderText = "Seller";
             this.clmSeller.Name = "clmSeller";
             this.clmSeller.ReadOnly = true;
+            this.clmSeller.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clmSeller.Width = 50;
             // 
             // clmMake
@@ -289,6 +290,7 @@
             this.clmMake.HeaderText = "Make";
             this.clmMake.Name = "clmMake";
             this.clmMake.ReadOnly = true;
+            this.clmMake.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clmMake.Width = 50;
             // 
             // clmModel

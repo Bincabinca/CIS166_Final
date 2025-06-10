@@ -71,7 +71,7 @@ namespace CarDealership
             CarColorsDB.Save(car.Color);
 
             string carsResult = System.IO.File.ReadAllText(CarsPath);
-            carsResult += $"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Engine}|";
+            carsResult += $"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Engine}\n{car.User}|";
             System.IO.File.WriteAllText(CarsPath, carsResult);
 
             string timesResult = System.IO.File.ReadAllText(TimesPath);
@@ -84,7 +84,7 @@ namespace CarDealership
             CarColorsDB.Save(car.Color);
 
             string carsResult = System.IO.File.ReadAllText(CarsPath);
-            carsResult += $"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Mileage}|";
+            carsResult += $"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Mileage}\n{car.User}|";
             System.IO.File.WriteAllText(CarsPath, carsResult);
 
             string timesResult = System.IO.File.ReadAllText(TimesPath);
@@ -97,7 +97,7 @@ namespace CarDealership
             CarColorsDB.Save(car.Color);
 
             string carsResult = System.IO.File.ReadAllText(CarsPath);
-            carsResult += $"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.SafetyRating}|";
+            carsResult += $"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.SafetyRating}\n{car.User}|";
             System.IO.File.WriteAllText(CarsPath, carsResult);
 
             string timesResult = System.IO.File.ReadAllText(TimesPath);
@@ -110,7 +110,7 @@ namespace CarDealership
             CarColorsDB.Save(car.Color);
 
             string carsResult = System.IO.File.ReadAllText(CarsPath);
-            carsResult += $"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Horsepower}|";
+            carsResult += $"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Horsepower}\n{car.User}|";
             System.IO.File.WriteAllText(CarsPath, carsResult);
 
             string timesResult = System.IO.File.ReadAllText(TimesPath);

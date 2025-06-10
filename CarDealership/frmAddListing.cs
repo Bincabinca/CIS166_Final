@@ -16,10 +16,9 @@ namespace CarDealership
     public partial class frmAddListing : Form
     {
         string User { get; set; }
-        public frmAddListing(string user)
+        public frmAddListing()
         {
             InitializeComponent();
-            User = user;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -38,6 +37,7 @@ namespace CarDealership
                                         Convert.ToDecimal(txtPrice.Text.ToString()),
                                         txtExtra.Text.ToString(),
                                         User);
+                        newCar.User = "Bianca";
                         CarListingsDB.Save(newCar);
                     }
                     else if (selectedMake == nameof(Toyota))
@@ -48,6 +48,7 @@ namespace CarDealership
                                         Convert.ToDecimal(txtPrice.Text.ToString()),
                                         txtExtra.Text.ToString(),
                                         User);
+                        newCar.User = "Bianca";
                         CarListingsDB.Save(newCar);
                     }
                     else if (selectedMake == nameof(Honda))
@@ -58,6 +59,7 @@ namespace CarDealership
                                         Convert.ToDecimal(txtPrice.Text.ToString()),
                                         txtExtra.Text.ToString(),
                                         User);
+                        newCar.User = "Bianca";
                         CarListingsDB.Save(newCar);
                     }
                     else if (selectedMake == nameof(Mercedes))
@@ -68,6 +70,7 @@ namespace CarDealership
                                         Convert.ToDecimal(txtPrice.Text.ToString()),
                                         txtExtra.Text.ToString(),
                                         User);
+                        newCar.User = "Bianca";
                         CarListingsDB.Save(newCar);
                     }
                 }
@@ -102,9 +105,7 @@ namespace CarDealership
                     default: 
                     lblExtra.Text = "Select Make... ";
                     txtExtra.Enabled = false; break; // no extra field with no make
-
                 }
-
             }
         }
         
@@ -139,7 +140,6 @@ namespace CarDealership
             //If all inputs are valid
             return success;
         }
-
 
         private void btnExit_Click(object sender, EventArgs e)
         {

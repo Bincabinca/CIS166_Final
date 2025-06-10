@@ -52,10 +52,22 @@ Mercedes
 13
 13518354519
 13518354519
-Bianca|Toyota
+Bianca|Honda
 Fit
 Silver
 12
 6000
 40 MPG
+Bianca|Toyota
+Camry
+Red
+12
+3289
+good
+Bianca|Honda
+Car
+Green
+4
+8900
+2/5
 Bianca|
