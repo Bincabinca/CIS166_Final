@@ -121,7 +121,7 @@ namespace CarDealership
         public static void Delete(BMW car, string dateTime)
         {
             string carsResult = System.IO.File.ReadAllText(CarsPath);
-            carsResult = carsResult.Replace($"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Engine}|", "");
+            carsResult = carsResult.Replace($"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Engine}\n{car.User}|", "");
             System.IO.File.WriteAllText(CarsPath, carsResult);
 
             string timesResult = System.IO.File.ReadAllText(TimesPath);
@@ -131,7 +131,7 @@ namespace CarDealership
         public static void Delete(Toyota car, string dateTime)
         {
             string carsResult = System.IO.File.ReadAllText(CarsPath);
-            carsResult = carsResult.Replace($"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Mileage}|", "");
+            carsResult = carsResult.Replace($"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Mileage}\n{car.User}|", "");
             System.IO.File.WriteAllText(CarsPath, carsResult);
 
             string timesResult = System.IO.File.ReadAllText(TimesPath);
@@ -141,7 +141,7 @@ namespace CarDealership
         public static void Delete(Honda car, string dateTime)
         {
             string carsResult = System.IO.File.ReadAllText(CarsPath);
-            carsResult = carsResult.Replace($"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.SafetyRating}|", "");
+            carsResult = carsResult.Replace($"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.SafetyRating}\n{car.User}|", "");
             System.IO.File.WriteAllText(CarsPath, carsResult);
 
             string timesResult = System.IO.File.ReadAllText(TimesPath);
@@ -151,7 +151,7 @@ namespace CarDealership
         public static void Delete(Mercedes car, string dateTime)
         {
             string carsResult = System.IO.File.ReadAllText(CarsPath);
-            carsResult = carsResult.Replace($"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Horsepower}|", "");
+            carsResult = carsResult.Replace($"{car.Make}\n{car.Model}\n{car.Color}\n{car.Age}\n{car.Price}\n{car.Horsepower}\n{car.User}|", "");
             System.IO.File.WriteAllText(CarsPath, carsResult);
 
             string timesResult = System.IO.File.ReadAllText(TimesPath);
