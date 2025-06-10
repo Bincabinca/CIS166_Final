@@ -48,21 +48,15 @@
   </ItemGroup>
   <ItemGroup>
 <<<<<<< HEAD
-<<<<<<< HEAD
     <Compile Include="Authorizer.cs" />
 =======
->>>>>>> 67d0f077452360cce43e3a4ac4a41a9da539925f
-=======
-
-    <Compile Include="Authorizer.cs" />
-
->>>>>>> 3f77dd0987d17aa47c020cd84f690504a33b661a
     <Compile Include="Comments.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Comments.Designer.cs">
       <DependentUpon>Comments.cs</DependentUpon>
     </Compile>
+>>>>>>> 724fbb904212a3fad29138e4d67f05c4f6da51fd
     <Compile Include="DatabaseFiles\CarAgeRangesDB.cs" />
     <Compile Include="DatabaseFiles\CarColorsDB.cs" />
     <Compile Include="DatabaseFiles\CarMakesDB.cs" />
