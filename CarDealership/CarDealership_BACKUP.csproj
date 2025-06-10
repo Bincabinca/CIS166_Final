@@ -47,13 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Authorizer.cs" />
+=======
     <Compile Include="Comments.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Comments.Designer.cs">
       <DependentUpon>Comments.cs</DependentUpon>
     </Compile>
+>>>>>>> 724fbb904212a3fad29138e4d67f05c4f6da51fd
     <Compile Include="DatabaseFiles\CarAgeRangesDB.cs" />
     <Compile Include="DatabaseFiles\CarColorsDB.cs" />
     <Compile Include="DatabaseFiles\CarMakesDB.cs" />
