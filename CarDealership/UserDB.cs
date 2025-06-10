@@ -9,7 +9,7 @@ namespace CarDealership.Authorizer
     public class UserDB
     {
         /// <summary>
-        /// lambda that retrieves the users from the stored file into a List
+        /// lambda that retrieves the users from the stored file into a List 
         /// </summary>
         /// <returns>a list of all currently stored users</returns>
         public static List<string> GetUsers =>

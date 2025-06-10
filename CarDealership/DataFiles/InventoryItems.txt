@@ -1,10 +1,4 @@
-Toyota
-Camry
-Blue
-13
-1345
-30 MPG
-Bianca|Honda
+Honda
 Fit
 Silver
 13
@@ -40,22 +34,28 @@ Silver
 7
 25500
 700hp
-Bianca|Toyota
-yh
-ye
-234
-25
-363
 Bianca|Mercedes
 Mercedes
 Mercedes
 13
 13518354519
 13518354519
-Bianca|Toyota
+Bianca|Honda
 Fit
 Silver
 12
 6000
 40 MPG
+Bianca|Toyota
+Camry
+Red
+12
+3289
+good
+Bianca|Honda
+Car
+Green
+4
+8900
+2/5
 Bianca|
