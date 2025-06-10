@@ -16,12 +16,6 @@ Grey
 17
 1670.99
 30 MPG
-Bianca|Mercedes
-Luxury Car
-Gold
-1
-200000
-500hp
 Bianca|Honda
 Civic
 Yellow

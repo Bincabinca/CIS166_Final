@@ -103,7 +103,7 @@ namespace CarDealership
         private void FillFilteredListings(string filter)
         {
             dgvListings.Columns.Clear();
-            rchListings.Clear();
+            //rchListings.Clear();
 
             var listings = CarListingsDB.GetListings();
 
