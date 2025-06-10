@@ -28,8 +28,8 @@ namespace CarDealership
             if (IsValid())
             {
                 string username = txtUsername.Text.Trim();
-                string password = txtPassword.Text;
-
+                string password = txtPassword.Text.Trim();
+                
 
                 var lines = System.IO.File.Exists(Authorizer.UsersPath)
                     ? System.IO.File.ReadAllLines(Authorizer.UsersPath)
@@ -47,7 +47,7 @@ namespace CarDealership
           
                     string userEntry = $"{username}|{password}";
 
-                    System.IO.File.AppendAllText(Authorizer.UsersPath, userEntry + Environment.NewLine);
+                    System.IO.File.AppendAllText(Authorizer.UsersPath, userEntry);
                     MessageBox.Show("User created successfully!", "Success");
                     this.Close();
                 }
